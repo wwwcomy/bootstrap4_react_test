@@ -4,7 +4,7 @@ var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
-var clean = require('gulp-clean');
+var del = require('del');
 var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 
@@ -30,9 +30,10 @@ var paths = {
 
 
 gulp.task('clean', function() {
-  return gulp.src('dist', {
-    read: false
-  }).pipe(clean());
+  return del([
+    // here we use a globbing pattern to match everything inside the `dist` folder
+    'dist/**/*'
+  ]);
 });
 
 gulp.task('build-dep-js', function() {
