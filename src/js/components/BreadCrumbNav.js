@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { browserHistory } from 'react-router';
 
-export default class BreadCrumbNav extends Component {
+export default class BreadCrumbNav extends React.Component {
   constructor() {
     super();
     this.onCrumbClick = this.onCrumbClick.bind(this);
   }
 
-  onCrumbClick(href) {
+  onCrumbClick(href, e) {
     browserHistory.push(href);
   }
 
@@ -19,23 +19,21 @@ export default class BreadCrumbNav extends Component {
       if(crumb.href) {
         anchors.push(
               <li key={crumb.key} className="breadcrumb-item">
-                  <a onClick={this.onCrumbClick.bind(this, crumb.href)}> {crumb.key} </a>
+                  <a href="#" onClick={this.onCrumbClick.bind(this, crumb.href)}> {crumb.key} </a>
               </li>
             );
       } else {
         anchors.push(
                 <li key={crumb.key} className="breadcrumb-item">
                      {crumb.key}
-               	</li>
+                </li>
                );
       }
     });
   }
     return (<div>
       <ol className="breadcrumb">
-        <li className="breadcrumb-item"><a href="#">Home</a></li>
-        <li className="breadcrumb-item"><a href="#">test1</a></li>
-        <li className="breadcrumb-item active">test2</li>
+        <li className="breadcrumb-item"><a href="#" onClick={this.onCrumbClick.bind(this, "/main")}>Home</a></li>
         {anchors}
       </ol>
     </div>);

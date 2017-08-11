@@ -4,36 +4,43 @@ import { browserHistory } from 'react-router';
 
 export default class OrgList extends React.Component {
 
-constructor () {
+  constructor () {
     super();
     this.crumbs=[{
-      key : 'Organization List'
+      key : 'Examination Paper'
     }];
-    this.state = {orgList:[]};
-    this.selectOrg = this.selectOrg.bind(this);
+    this.state = {paperList:[]};
+    this.selectPaper = this.selectPaper.bind(this);
+  }
+  componentDidMount() {
+    let mathsSimple = {
+      name: 'maths/simple'
+    }
+    this.state.paperList.push(mathsSimple);
   }
 
-  selectOrg(index) {
-    browserHistory.push('/main/organizations/'+this.state.orgList[index].name); 
+  selectPaper(e,index) {
+    e.preventDefault();
+    browserHistory.push('main/'+this.state.paperList[0].name); 
   }
 
-	render() {
-		return ( <div>
-				<BreadCrumbNav crumbs = {this.crumbs}/>
-				<div className='card card-block'>
-					<h4 className='card-title'> Organization List </h4>
-				</div>
+  render() {
+    return ( <div>
+        <BreadCrumbNav crumbs = {this.crumbs}/>
+        <div className='card card-block'>
+          <h4 className='card-title'> Examination List </h4>
+        </div>
 
-				<div className = "card-text">
-					<div className="list-group">
-					<a href="#" className="list-group-item list-group-item-action" onClick = {this.selectOrg}>Cras justo odio</a>
-					<a href="#" className="list-group-item list-group-item-action" onClick = {this.selectOrg}>Dapibus ac facilisis in</a>
-					<a href="#" className="list-group-item list-group-item-action" onClick = {this.selectOrg}>Morbi leo risus</a>
-					<a href="#" className="list-group-item list-group-item-action" onClick = {this.selectOrg}>Porta ac consectetur ac</a>
-					<a href="#" className="list-group-item list-group-item-action" onClick = {this.selectOrg}>Vestibulum at eros</a>
-					</div>
-				</div>
-			</div>
-		);
-	}
+        <div className = "card-text">
+          <div className="list-group">
+          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Simple Maths</a>
+          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Dapibus ac facilisis in</a>
+          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Morbi leo risus</a>
+          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Porta ac consectetur ac</a>
+          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Vestibulum at eros</a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
