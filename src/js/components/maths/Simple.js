@@ -25,6 +25,18 @@ export default class Simple extends React.Component {
   }
 
   render() {
+    let inputQuestionArr = [];
+    for(let i=0;i<10;i++){
+      inputQuestionArr.push(
+              <div key={'outerDiv'+i}>
+                <div className="form-group">
+                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} />
+                </div>
+                <hr/>
+              </div>
+            );
+    }
+
     return ( 
       <div>
         <BreadCrumbNav crumbs = {this.crumbs}/>
@@ -36,22 +48,7 @@ export default class Simple extends React.Component {
               </div>
               <div className="panel-body">
                 <form className="form-horizontal">
-                  <div className="form-group">
-                    <InputQuestion id="ex1" />
-                  </div>
-                  <hr/>
-                  <div className="form-group">
-                    <InputQuestion id="ex1" />
-                  </div>
-                  <div className="form-group">
-                    <InputQuestion id="ex1" />
-                  </div>
-                  <div className="form-group">
-                    <InputQuestion id="ex1" />
-                  </div>
-                  <div className="form-group">
-                    <InputQuestion id="ex1" />
-                  </div>
+                  {inputQuestionArr}
                 </form>
               </div>
             </div>

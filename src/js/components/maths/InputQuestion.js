@@ -13,9 +13,9 @@ export default class InputQuestion extends React.Component {
 
   render() {
     return <div>
-              <Expression htmlFor="inputCom"></Expression>
+              <Expression htmlFor={this.props.nameKey}></Expression>
               <div className="col-md-3">
-                <input type="text" className="form-control" id="inputCom" />
+                <input type="text" className="form-control" id={this.props.nameKey} />
               </div>
             </div>
   }
