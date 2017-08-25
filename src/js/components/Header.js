@@ -1,12 +1,13 @@
 import React from 'react';
+import { Router, Route, browserHistory,Link} from 'react-router'
 
 export default class Header extends React.Component {
 	 render() {return (
       <nav className="navbar navbar-inverse">
-        <a className="navbar-brand" href="/main">Project name</a>
+        <Link className="navbar-brand" to="/main">Project name</Link>
         <ul className="nav navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="/main">Home <span className="sr-only">(current)</span></a>
+            <Link className="nav-link" to="/main">Home <span className="sr-only">(current)</span></Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">About</a>
