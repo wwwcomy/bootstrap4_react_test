@@ -22,6 +22,7 @@ export default class Simple extends React.Component {
 
   check(e){
     e.preventDefault();
+    console.log(this.refs.ex1);
   }
 
   render() {
@@ -30,7 +31,7 @@ export default class Simple extends React.Component {
       inputQuestionArr.push(
               <div key={'outerDiv'+i}>
                 <div className="form-group">
-                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} />
+                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} />
                 </div>
                 <hr/>
               </div>

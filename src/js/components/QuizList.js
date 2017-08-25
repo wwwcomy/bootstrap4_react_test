@@ -2,7 +2,7 @@ import React from 'react';
 import BreadCrumbNav from './BreadCrumbNav';
 import { browserHistory } from 'react-router';
 
-export default class OrgList extends React.Component {
+export default class QuizList extends React.Component {
 
   constructor () {
     super();

@@ -1,6 +1,6 @@
 import App from './App';
 import NotFound from './components/NotFound';
-import OrgList from './components/OrgList';
+import QuizList from './components/QuizList';
 import Main from './components/Main';
 import Simple from './components/maths/Simple';
 
@@ -8,13 +8,13 @@ export default {
     path: '/',
     component: App,
     indexRoute: {
-        component: OrgList
+        component: QuizList
     },
     childRoutes: [{
         path: 'main',
         component: Main,
         indexRoute: {
-            component: OrgList
+            component: QuizList
         },
         childRoutes: [{
             path: 'maths/simple',
