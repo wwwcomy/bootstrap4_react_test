@@ -62,6 +62,12 @@ gulp.task('build-img', function() {
   gulp.src(paths.img).pipe(gulp.dest('./dist/img')).pipe(connect.reload());
 });
 
+gulp.task('build-css', function() {
+  return gulp.src(paths.css)
+    .pipe(concat('main.css'))
+    .pipe(gulp.dest('./dist/css'));
+});
+
 gulp.task('build-js', function() {
   browserify({
       entries: paths.js,
@@ -77,7 +83,7 @@ gulp.task('build-js', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-dep-font', 'build-html', 'build-js', 'build-img'], function() {});
+gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-dep-font', 'build-html', 'build-js', 'build-css', 'build-img'], function() {});
 
 gulp.task('watch', function() {
   gulp.watch('src/js/**/*.js', ['build-js']);

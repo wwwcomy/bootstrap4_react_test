@@ -22,7 +22,9 @@ export default class Simple extends React.Component {
 
   check(e){
     e.preventDefault();
-    console.log(this.refs.ex1);
+    for(let i=0;i<10;i++){
+      this.refs["ex"+i].setState({"iconShow":true});
+    }
   }
 
   render() {
