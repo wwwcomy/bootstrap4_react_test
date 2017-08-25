@@ -14,6 +14,16 @@ export default class InputQuestion extends React.Component {
   }
 
   handleKeyPress(e) {
+
+    // setting focus
+    if (e.keyCode == 13) {
+      let inputId = this.props.nameKey;
+      let nextId = 'ex' + (parseInt(inputId.slice(2)) + 1);
+      if ($("#" + nextId).length > 0) {
+          $("#" + nextId).focus();
+      }
+    }
+
     let expression = this.refs.expression;
     let result = expression.state.result;
     let inputVal = this.refs.inputCom.value;
