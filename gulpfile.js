@@ -24,7 +24,8 @@ var paths = {
   lib: {
     js: ['node_modules/tether/dist/js/tether.js', 'node_modules/jquery/dist/jquery.js', 'node_modules/bootstrap/dist/js/bootstrap.js'],
     css: ['node_modules/tether/dist/css/tether.css', 'node_modules/bootstrap/dist/css/bootstrap.css'],
-    img: []
+    img: [],
+    fonts:['node_modules/bootstrap/dist/fonts/**/*']
   }
 };
 
@@ -46,6 +47,11 @@ gulp.task('build-dep-css', function() {
   return gulp.src(paths.lib.css)
     .pipe(concat('dependent.css'))
     .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('build-dep-font', function() {
+  return gulp.src(paths.lib.fonts)
+    .pipe(gulp.dest('./dist/fonts'));
 });
 
 gulp.task('build-html', function() {
@@ -71,7 +77,7 @@ gulp.task('build-js', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-html', 'build-js', 'build-img'], function() {});
+gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-dep-font', 'build-html', 'build-js', 'build-img'], function() {});
 
 gulp.task('watch', function() {
   gulp.watch('src/js/**/*.js', ['build-js']);
