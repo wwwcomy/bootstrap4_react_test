@@ -10,9 +10,10 @@ export default class Expression extends React.Component {
     };
   }
   componentDidMount() {
+    let range = this.props.range?this.props.range:10;
     let operators = ["+", "-"];
-    let input1 = parseInt(10 * Math.random());
-    let input2 = parseInt(10 * Math.random());
+    let input1 = parseInt(range * Math.random());
+    let input2 = parseInt(range * Math.random());
     let operator = "";
     // using such kind of algorithm, plus:minus ~= 3:1
     if (input1 < input2) {

@@ -48,7 +48,7 @@ export default class InputQuestion extends React.Component {
     }
     return <div>
               <div className="col-md-1"></div>
-              <Expression htmlFor={this.props.nameKey} ref="expression"></Expression>
+              <Expression htmlFor={this.props.nameKey} ref="expression" range={this.props.range}></Expression>
               <div className="col-md-3">
                 <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyPress} ref="inputCom"/>
               </div>
