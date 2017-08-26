@@ -46,6 +46,6 @@ export default class Expression extends React.Component {
   }
 
   render() {
-    return <label className="col-md-2" htmlFor={this.props.htmlFor}>{this.state.input1} {this.state.operator} {this.state.input2} = </label>
+    return <label className="col-md-2 col-sm-4 col-xs-4" htmlFor={this.props.htmlFor}>{this.state.input1} {this.state.operator} {this.state.input2} = </label>
   }
 }

@@ -47,9 +47,9 @@ export default class InputQuestion extends React.Component {
       iconJsx = <span className={"glyphicon glyphicon-remove red col-md-1 " + hiddenClass}></span>
     }
     return <div>
-              <div className="col-md-1"></div>
+              <div className="col-md-1 col-sm-1 col-xs-1"></div>
               <Expression htmlFor={this.props.nameKey} ref="expression" rangeFrom={this.props.rangeFrom} rangeTo={this.props.rangeTo}></Expression>
-              <div className="col-md-3">
+              <div className="col-md-3 col-sm-4 col-xs-4">
                 <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyPress} ref="inputCom"/>
               </div>
               {iconJsx}

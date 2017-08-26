@@ -45,7 +45,6 @@ export default class Simple extends React.Component {
     e.preventDefault();
     this.setState({questionCount:0});
     setTimeout(function(){this.setState({questionCount:10})}.bind(this),100);
-    // this.componentDidMount();
   }
 
   render() {

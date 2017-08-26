@@ -5,7 +5,7 @@ export default class Footer extends React.Component {
       return (<div>
         <hr />
         <footer>
-          <p>&copy; Company 2016</p>
+          <p>&copy; Company 2017</p>
         </footer>
       </div>);
   }
