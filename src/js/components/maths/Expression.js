@@ -10,22 +10,39 @@ export default class Expression extends React.Component {
     };
   }
   componentDidMount() {
-    let range = this.props.range?this.props.range:10;
+    let rangeTo = this.props.rangeTo ? this.props.rangeTo : 10;
+    let rangeFrom = this.props.rangeFrom ? this.props.rangeFrom : 0;
     let operators = ["+", "-"];
-    let input1 = parseInt(range * Math.random());
-    let input2 = parseInt(range * Math.random());
+    let input1 = this.randomBy(rangeFrom, rangeTo);
+    let input2 = this.randomBy(rangeFrom, rangeTo);
     let operator = "";
     // using such kind of algorithm, plus:minus ~= 3:1
     if (input1 < input2) {
-      operator = "+";
+        operator = "+";
     } else {
-      operator = operators[parseInt(2 * Math.random())];
+        operator = operators[parseInt(2 * Math.random())];
     }
-    this.setState({'input1' : input1});
-    this.setState({'input2' : input2});
-    this.setState({'operator' : operator});
-    let result = operator=='+'?(input1+input2):(input1-input2);
-    this.setState({'result' : result});
+    this.setState({ 'input1': input1 });
+    this.setState({ 'input2': input2 });
+    this.setState({ 'operator': operator });
+    let result = operator == '+' ? (input1 + input2) : (input1 - input2);
+    this.setState({ 'result': result });
+  }
+
+  randomBy(under, over) {
+    switch (arguments.length) {
+      case 1:
+        return parseInt(Math.random() * under + 1);
+      case 2:
+        if (over < under) {
+          let tmp = over;
+          over = under;
+          under = tmp;
+        }
+        return parseInt(Math.random() * (over - under + 1) + under);
+      default:
+        return 0;
+    }
   }
 
   render() {
