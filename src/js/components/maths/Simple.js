@@ -33,7 +33,7 @@ export default class Simple extends React.Component {
       inputQuestionArr.push(
               <div key={'outerDiv'+i}>
                 <div className="form-group">
-                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} />
+                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} range={10}/>
                 </div>
                 <hr/>
               </div>
