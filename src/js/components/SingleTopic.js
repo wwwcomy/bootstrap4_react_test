@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default class Main extends React.Component {
+export default class SingleTopic extends React.Component {
   constructor() {
     super();
   }
   render() {
     return <div>
-    <h2>Home</h2>
+    <h3>{this.props.match.params.topicId}</h3>
   </div>
   }
 }
