@@ -6,7 +6,8 @@ export default class InputQuestion extends React.Component {
     super();
     this.state = {
       result:false,
-      iconShow:false
+      iconShow:false,
+      right:false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }

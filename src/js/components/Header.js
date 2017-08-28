@@ -6,13 +6,13 @@ export default class Header extends React.Component {
       <nav className="navbar navbar-inverse">
         <div className="container">
           <div className="navbar-header">
+            <Link className="navbar-brand" to="/main">Project Name</Link>
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="nav-link" to="/main">Project Name</Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">

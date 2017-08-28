@@ -16,7 +16,8 @@ export default class Simple extends React.Component {
       key : 'Simple Maths'
     }];
     this.state = {
-      questionCount:0
+      questionCount:0,
+      score:0
     };
   }
 
@@ -31,9 +32,13 @@ export default class Simple extends React.Component {
 
   check(e){
     e.preventDefault();
+    let score = 0;
     for(let i=0;i<10;i++){
       this.refs["ex"+i].setState({"iconShow":true});
+      score+=this.refs["ex"+i].state.right?10:0;
     }
+    this.setState({score:score});
+    $("#myModal").modal('show');
   }
   hide(e){
     e.preventDefault();
@@ -81,14 +86,30 @@ export default class Simple extends React.Component {
             <div className="panel panel-default">
               <div className='panel-body'>
                 <p>The range of the number is from 0 to 10.</p>
-                <p>Check the result!</p>
                 <button type="button" className="btn btn-success btn-block" onClick = {this.check}>Check</button>
                 <button type="button" className="btn btn-info btn-block" onClick = {this.hide}>Hide Mark</button>
                 <button type="button" className="btn btn-danger btn-block" onClick = {this.reGenerate}>Re-Generate Questions</button>
               </div>
             </div>
           </div>
-      </div>
+        </div>
+
+        <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 className="modal-title" id="myModalLabel">Result</h4>
+              </div>
+              <div className="modal-body">
+                <h1>Score: {this.state.score}</h1>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
