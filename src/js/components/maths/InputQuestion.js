@@ -43,14 +43,14 @@ export default class InputQuestion extends React.Component {
     let hiddenClass = this.state.iconShow ? '' : 'hidden';
     let iconJsx;
     if(this.state.right){
-      iconJsx = <span className={"glyphicon glyphicon-ok red col-md-1 " + hiddenClass}></span>
+      iconJsx = <span className={"glyphicon glyphicon-ok red col-md-2 " + hiddenClass}></span>
     }else{
-      iconJsx = <span className={"glyphicon glyphicon-remove red col-md-1 " + hiddenClass}></span>
+      iconJsx = <span className={"glyphicon glyphicon-remove red col-md-2 " + hiddenClass}></span>
     }
     return <div>
-              <div className="col-md-1 col-sm-1 col-xs-1"></div>
+              <div className="col-md-2 col-sm-2 col-xs-2"></div>
               <Expression htmlFor={this.props.nameKey} ref="expression" rangeFrom={this.props.rangeFrom} rangeTo={this.props.rangeTo}></Expression>
-              <div className="col-md-3 col-sm-4 col-xs-4">
+              <div className="col-md-4 col-sm-4 col-xs-4">
                 <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyPress} ref="inputCom"/>
               </div>
               {iconJsx}

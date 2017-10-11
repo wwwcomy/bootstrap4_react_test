@@ -29,23 +29,23 @@ export default class Expression extends React.Component {
     this.setState({ 'result': result });
   }
 
-  randomBy(under, over) {
+  randomBy(lower, higher) {
     switch (arguments.length) {
       case 1:
-        return parseInt(Math.random() * under + 1);
+        return parseInt(Math.random() * lower + 1);
       case 2:
-        if (over < under) {
-          let tmp = over;
-          over = under;
-          under = tmp;
+        if (higher < lower) {
+          let tmp = higher;
+          higher = lower;
+          lower = tmp;
         }
-        return parseInt(Math.random() * (over - under + 1) + under);
+        return parseInt(Math.random() * (higher - lower + 1) + lower);
       default:
         return 0;
     }
   }
 
   render() {
-    return <label className="col-md-2 col-sm-4 col-xs-4" htmlFor={this.props.htmlFor}>{this.state.input1} {this.state.operator} {this.state.input2} = </label>
+    return <label className="col-md-4 col-sm-4 col-xs-4" htmlFor={this.props.htmlFor}>{this.state.input1} {this.state.operator} {this.state.input2} = </label>
   }
 }

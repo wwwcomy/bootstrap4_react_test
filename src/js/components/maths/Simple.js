@@ -56,12 +56,9 @@ export default class Simple extends React.Component {
     let inputQuestionArr = [];
     for(let i=0;i<this.state.questionCount;i++){
       inputQuestionArr.push(
-              <div key={'outerDiv'+i}>
-                <div className="form-group">
+                <div className="form-group col-md-6" key={'outerDiv'+i}>
                   <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} rangeFrom={0} rangeTo={10}/>
                 </div>
-                <hr/>
-              </div>
             );
     }
 
@@ -69,7 +66,7 @@ export default class Simple extends React.Component {
       <div>
         <BreadCrumbNav crumbs = {this.crumbs}/>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-9">
             <div className="panel panel-default">
               <div className="panel-heading">
                 <h3 className="card-title">Please calculate the results of the following questions.</h3>
@@ -82,7 +79,7 @@ export default class Simple extends React.Component {
             </div>
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-3">
             <div className="panel panel-default">
               <div className='panel-body'>
                 <p>The range of the number is from 0 to 10.</p>
