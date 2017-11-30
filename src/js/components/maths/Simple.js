@@ -19,10 +19,14 @@ export default class Simple extends React.Component {
       questionCount:0,
       score:0
     };
+    history.pushState(null, null, location.href);
+    window.onpopstate = function(event) {
+      history.go(1);
+    };
   }
 
   componentDidMount(){
-    this.setState({questionCount:10});
+    this.setState({questionCount:20});
   }
 
   cancelEdit(e) {
@@ -33,23 +37,23 @@ export default class Simple extends React.Component {
   check(e){
     e.preventDefault();
     let score = 0;
-    for(let i=0;i<10;i++){
+    for(let i=0;i<20;i++){
       this.refs["ex"+i].setState({"iconShow":true});
-      score+=this.refs["ex"+i].state.right?10:0;
+      score+=this.refs["ex"+i].state.right?5:0;
     }
     this.setState({score:score});
     $("#myModal").modal('show');
   }
   hide(e){
     e.preventDefault();
-    for(let i=0;i<10;i++){
+    for(let i=0;i<20;i++){
       this.refs["ex"+i].setState({"iconShow":false});
     }
   }
   reGenerate(e){
     e.preventDefault();
     this.setState({questionCount:0});
-    setTimeout(function(){this.setState({questionCount:10})}.bind(this),100);
+    setTimeout(function(){this.setState({questionCount:20})}.bind(this),100);
   }
 
   render() {
@@ -57,7 +61,7 @@ export default class Simple extends React.Component {
     for(let i=0;i<this.state.questionCount;i++){
       inputQuestionArr.push(
                 <div className="form-group col-md-6" key={'outerDiv'+i}>
-                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} rangeFrom={0} rangeTo={10}/>
+                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} rangeFrom={0} rangeTo={15}/>
                 </div>
             );
     }
