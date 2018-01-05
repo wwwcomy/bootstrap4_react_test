@@ -1,5 +1,6 @@
 import React from 'react';
 import Expression from './Expression';
+import ExpressionWithOneOperator from './ExpressionWithOneOperator';
 
 export default class InputQuestion extends React.Component {
   constructor() {
@@ -10,6 +11,7 @@ export default class InputQuestion extends React.Component {
       right:false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.exp1 = new ExpressionWithOneOperator();
   }
   componentDidMount() {
   }
@@ -25,14 +27,12 @@ export default class InputQuestion extends React.Component {
       }
     }
 
-    let expression = this.refs.expression;
-    let result = expression.state.result;
     let inputVal = this.refs.inputCom.value;
     if (inputVal < 0 || inputVal > 99) {
       e.preventDefault();
       return;
     }
-    if (result == inputVal) {
+    if (this.exp1.result == inputVal) {
       this.setState({ "right": true });
     } else {
       this.setState({ "right": false });
@@ -49,7 +49,7 @@ export default class InputQuestion extends React.Component {
     }
     return <div>
               <div className="col-md-2 col-sm-2 col-xs-2"></div>
-              <Expression htmlFor={this.props.nameKey} ref="expression" rangeFrom={this.props.rangeFrom} rangeTo={this.props.rangeTo}></Expression>
+              <label className="col-md-4 col-sm-4 col-xs-4" htmlFor={this.props.htmlFor}>{this.exp1.input1} {this.exp1.operator} {this.exp1.input2} = </label>
               <div className="col-md-4 col-sm-4 col-xs-4">
                 <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyPress} ref="inputCom"/>
               </div>

@@ -27,6 +27,7 @@ export default class Expression extends React.Component {
     this.setState({ 'operator': operator });
     let result = operator == '+' ? (input1 + input2) : (input1 - input2);
     this.setState({ 'result': result });
+
   }
 
   randomBy(lower, higher) {

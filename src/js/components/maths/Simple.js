@@ -61,7 +61,7 @@ export default class Simple extends React.Component {
     for(let i=0;i<this.state.questionCount;i++){
       inputQuestionArr.push(
                 <div className="form-group col-md-6" key={'outerDiv'+i}>
-                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} rangeFrom={0} rangeTo={15}/>
+                  <InputQuestion id={'ex'+i} nameKey={'ex'+i} ref={'ex'+i} rangeFrom={0} rangeTo={13}/>
                 </div>
             );
     }
