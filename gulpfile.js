@@ -37,7 +37,7 @@ gulp.task('clean', function() {
   ]);
 });
 
-gulp.task('build-dep-js', function() {
+gulp.task('build-dep-js', function(done) {
   return gulp.src(paths.lib.js)
     .pipe(concat('dependent.js'))
     .pipe(gulp.dest('./dist/js'));
@@ -54,12 +54,14 @@ gulp.task('build-dep-font', function() {
     .pipe(gulp.dest('./dist/fonts'));
 });
 
-gulp.task('build-html', function() {
+gulp.task('build-html', function(done) {
   gulp.src(paths.html).pipe(gulp.dest('./dist')).pipe(connect.reload());
+  done();
 });
 
-gulp.task('build-img', function() {
+gulp.task('build-img', function(done) {
   gulp.src(paths.img).pipe(gulp.dest('./dist/img')).pipe(connect.reload());
+  done();
 });
 
 gulp.task('build-css', function() {
@@ -68,7 +70,7 @@ gulp.task('build-css', function() {
     .pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('build-js', function() {
+gulp.task('build-js', function(done) {
   browserify({
       entries: paths.js,
       extensions: ['.js'],
@@ -81,13 +83,14 @@ gulp.task('build-js', function() {
     .pipe(source('main.js'))
     .pipe(gulp.dest('./dist/js'))
     .pipe(connect.reload());
+  done();
 });
 
-gulp.task('build', ['build-dep-js', 'build-dep-css', 'build-dep-font', 'build-html', 'build-js', 'build-css', 'build-img'], function() {});
+gulp.task('build', gulp.series('build-dep-js', 'build-dep-css', 'build-dep-font', 'build-html', 'build-js', 'build-css', 'build-img'));
 
 gulp.task('watch', function() {
-  gulp.watch('src/js/**/*.js', ['build-js']);
-  gulp.watch(paths.html, ['build-html']);
+  gulp.watch('src/js/**/*.js', gulp.parallel('build-js'));
+  gulp.watch(paths.html, gulp.parallel('build-html'));
 });
 
 // live reload 
@@ -100,7 +103,7 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('dev', ['build', 'connect', 'watch']);
+gulp.task('dev', gulp.parallel('build', 'connect', 'watch'));
 
 gulp.task('default', () => {
 
