@@ -16,7 +16,10 @@ export default class InputQuestion extends React.Component {
   componentDidMount() {
   }
 
+  // TODO if blur real quickly after input, the behavior is still not correct...
   handleKeyPress(e) {
+    console.log(e.keyCode)
+    console.log(this.refs.inputCom.value)
 
     // setting focus
     if (e.keyCode == 13) {
@@ -37,6 +40,15 @@ export default class InputQuestion extends React.Component {
     } else {
       this.setState({ "right": false });
     }
+    console.log(this.exp1.result + ",input=" + inputVal)
+  }
+
+  // look like there's something wrong on the tab handling.. so simply 
+  handleKeyDown(e){
+    if (e.keyCode == 9) {
+      e.preventDefault();
+      return;
+    }
   }
 
   render() {
@@ -51,7 +63,8 @@ export default class InputQuestion extends React.Component {
               <div className="col-md-2 col-sm-2 col-xs-2"></div>
               <label className="col-md-4 col-sm-4 col-xs-4" htmlFor={this.props.htmlFor}>{this.exp1.input1} {this.exp1.operator} {this.exp1.input2} = </label>
               <div className="col-md-4 col-sm-4 col-xs-4">
-                <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyUp={this.handleKeyPress} ref="inputCom"/>
+                {this.exp1.result} 
+                <input type="number" className="form-control" id={this.props.nameKey} onKeyPress={this.handleKeyPress} onKeyDown={this.handleKeyDown} ref="inputCom"/>
               </div>
               {iconJsx}
             </div>
