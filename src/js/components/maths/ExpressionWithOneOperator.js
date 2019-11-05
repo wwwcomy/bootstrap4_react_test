@@ -2,8 +2,7 @@ import React from 'react';
 
 export default class ExpressionWithOneOperator {
 
-  constructor() {
-    let operators = ["+", "-", "X", "÷"];
+  constructor(operators) {
     this.operator = operators[parseInt(operators.length * Math.random())];
     switch(this.operator){
       case "+":

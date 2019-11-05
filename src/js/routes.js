@@ -19,6 +19,9 @@ export default {
         childRoutes: [{
             path: 'maths/simple',
             component: Simple
+        },{
+            path: 'maths/simple2',
+            component: Simple
         }]
     }, {
         path: '*',

@@ -13,15 +13,11 @@ export default class QuizList extends React.Component {
     this.selectPaper = this.selectPaper.bind(this);
   }
   componentDidMount() {
-    let mathsSimple = {
-      name: 'maths/simple'
-    }
-    this.state.paperList.push(mathsSimple);
   }
 
-  selectPaper(e,index) {
+  selectPaper(e) {
     e.preventDefault();
-    browserHistory.push('main/'+this.state.paperList[0].name); 
+    browserHistory.push('main/maths/'+e.currentTarget.name); 
   }
 
   render() {
@@ -33,8 +29,8 @@ export default class QuizList extends React.Component {
 
         <div className = "card-text">
           <div className="list-group">
-          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Simple Maths</a>
-          <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Dapibus ac facilisis in</a>
+          <a href="maths/simple" name="simple" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Simple Maths</a>
+          <a href="maths/simple2" name="simple2" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Simple Maths</a>
           <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Morbi leo risus</a>
           <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Porta ac consectetur ac</a>
           <a href="#" className="list-group-item list-group-item-action" onClick = {this.selectPaper}>Vestibulum at eros</a>
