@@ -10,7 +10,7 @@ export default class InputQuestion extends React.Component {
       right:false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
-    let operators = ["+", "-", "X", "÷"];
+    let operators = ["+", "-"];
     this.exp1 = new ExpressionWithOneOperator(operators);
   }
   componentDidMount() {

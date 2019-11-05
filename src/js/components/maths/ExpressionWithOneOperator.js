@@ -6,9 +6,22 @@ export default class ExpressionWithOneOperator {
     this.operator = operators[parseInt(operators.length * Math.random())];
     switch(this.operator){
       case "+":
-        this.input1 = this.randomBy(0,10);
-        this.input2 = this.randomBy(0,10);
-        this.result = this.input1+this.input2;
+    	let p1 = this.randomBy(0,10);
+    	let p2 = this.randomBy(0,10);
+    	if(p1+p2>10){
+    		if(p1<p2){
+    			let tmp = p1;
+    			p1=p2;
+    			p2=tmp;
+    		}
+    		this.input1 = p1-p2;
+    		this.input2 = p2;
+    		this.result = p1;
+    	} else {
+          this.input1 = p1
+          this.input2 = p2;
+          this.result = this.input1+this.input2;
+    	}
         break;
       case "-":
     	let m1 = this.randomBy(1,10);

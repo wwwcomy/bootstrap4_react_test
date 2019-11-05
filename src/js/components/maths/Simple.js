@@ -25,7 +25,7 @@ export default class Simple extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({questionCount:20});
+    this.setState({questionCount:200});
   }
 
   cancelEdit(e) {
