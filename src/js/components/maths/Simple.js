@@ -1,7 +1,6 @@
 import React from 'react';
 import BreadCrumbNav from '../BreadCrumbNav';
 import { browserHistory } from 'react-router';
-import Expression from './Expression';
 import InputQuestion from './InputQuestion';
 
 export default class Simple extends React.Component {
