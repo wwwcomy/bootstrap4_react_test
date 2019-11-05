@@ -43,7 +43,7 @@ export default class InputQuestion extends React.Component {
     console.log(this.exp1.result + ",input=" + inputVal)
   }
 
-  // look like there's something wrong on the tab handling.. so simply 
+  // looks like there's something wrong on the tab handling.. so forbid the tab
   handleKeyDown(e){
     if (e.keyCode == 9) {
       e.preventDefault();
